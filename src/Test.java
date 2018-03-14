@@ -8,14 +8,27 @@ import java.lang.Integer;
 
 public class Test {
 
-
     public static void main(String[] args){
         int[] a = {1,2,3,4,5};
+        int l = 0;
+        int r = a.length-1;
+        int key = 2;
 
-        a = Arrays.copyOfRange(a,0,2);
+        while(true) {
+            int n = (l + r) / 2;
 
-        for(int i=0;i<a.length;i++){
-            System.out.print(a[i]);
+            if (a[n] == key) {
+                System.out.print(n);
+                break;
+            }
+
+            if(a[n] < key)
+                l = n+1;
+            else if(key < a[n])
+                r = n-1;
         }
+
+
+
     }
 }

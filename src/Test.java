@@ -12,7 +12,7 @@ public class Test {
         int[] a = {1,2,3,4,5};
         int l = 0;
         int r = a.length-1;
-        int key = 2;
+        int key = 12;
 
         while(true) {
             int n = (l + r) / 2;

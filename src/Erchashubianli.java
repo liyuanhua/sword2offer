@@ -27,6 +27,7 @@ public class Erchashubianli {
     }
     public void levelOrder(BinaryTreeNode root){
         Queue<BinaryTreeNode> queue = new ArrayDeque<BinaryTreeNode>();
+        BinaryTreeNode node;
 
         if(root == null)
             return;
@@ -34,36 +35,43 @@ public class Erchashubianli {
         queue.offer(root);
 
         while(!queue.isEmpty()){
-            BinaryTreeNode node = queue.poll();
-            System.out.println(node.getVal());
-            if(node.getLeft() != null)
+            node = queue.poll();
+            System.out.print(node.getVal());
+
+            if(node.getLeft() != null){
                 queue.offer(node.getLeft());
-            if(node.getRight() != null)
+            }
+            if(node.getRight() != null){
                 queue.offer(node.getRight());
+            }
         }
 
     }
 
     public void preOrderF(BinaryTreeNode root){
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
+        BinaryTreeNode node;
 
         if(root == null)
             return;
 
         stack.push(root);
 
-        while(!stack.isEmpty()){
-            BinaryTreeNode node = stack.pop();
-            System.out.println(node.getVal());
+        while (!stack.isEmpty()){
+            node = stack.pop();
+            System.out.print(node.getVal());
+
             if(node.getRight() != null)
                 stack.push(node.getRight());
             if(node.getLeft() != null)
                 stack.push(node.getLeft());
         }
 
+
+
     }
     public void inOrderF(BinaryTreeNode root){
-        Stack<BinaryTreeNode> stack = new Stack<>();
+        Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
                 stack.push(root);
@@ -75,6 +83,23 @@ public class Erchashubianli {
                 root = node.getRight();
             }
         }
+
+    }
+
+    public int returnHighNum(BinaryTreeNode root){
+        int highnum = 0;
+        int lefthighnum = 0;
+        int righthighnum = 0;
+
+        if(root == null){
+            highnum = 0;
+            return highnum;
+        }
+
+        lefthighnum = returnHighNum(root.getLeft());
+        righthighnum = returnHighNum(root.getRight());
+
+        return Math.max(lefthighnum, righthighnum) + 1;
 
     }
 
@@ -92,7 +117,8 @@ public class Erchashubianli {
 
         Erchashubianli e = new Erchashubianli();
 
-        e.inOrderF(root);
+        e.postOrder(root);
 
+        //System.out.print(e.returnHighNum(root));
     }
 }

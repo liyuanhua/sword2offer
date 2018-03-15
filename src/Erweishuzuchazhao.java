@@ -10,7 +10,6 @@ public class Erweishuzuchazhao {
             for(int j=0;j<array[i].length;j++){
                 if(target == array[i][j])
                     return true;
-
             }
         return flag;
     }

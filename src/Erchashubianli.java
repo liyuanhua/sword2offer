@@ -33,20 +33,17 @@ public class Erchashubianli {
             return;
 
         queue.offer(root);
-
         while(!queue.isEmpty()){
             node = queue.poll();
             System.out.print(node.getVal());
-
-            if(node.getLeft() != null){
+            if(node.getLeft() != null)
                 queue.offer(node.getLeft());
-            }
-            if(node.getRight() != null){
+            if(node.getRight() != null)
                 queue.offer(node.getRight());
-            }
         }
-
     }
+
+
 
     public void preOrderF(BinaryTreeNode root){
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
@@ -57,7 +54,7 @@ public class Erchashubianli {
 
         stack.push(root);
 
-        while (!stack.isEmpty()){
+        while(!stack.isEmpty()){
             node = stack.pop();
             System.out.print(node.getVal());
 
@@ -72,35 +69,55 @@ public class Erchashubianli {
     }
     public void inOrderF(BinaryTreeNode root){
         Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
-        while (root != null || !stack.isEmpty()) {
-            while (root != null) {
-                stack.push(root);
-                root = root.getLeft();
-            }
-            if (!stack.isEmpty()) {
-                BinaryTreeNode node = stack.pop();
-                System.out.print(node.getVal());
-                root = node.getRight();
-            }
+        BinaryTreeNode node;
+
+        if(root == null)
+            return;
+
+        while(root != null){
+            stack.push(root);
+            root = root.getLeft();
+        }
+
+        while(!stack.isEmpty()) {
+            node = stack.pop();
+            System.out.print(node.getVal());
+            if (node.getRight() != null)
+                stack.push(node.getRight());
         }
 
     }
 
-    public int returnHighNum(BinaryTreeNode root){
-        int highnum = 0;
-        int lefthighnum = 0;
-        int righthighnum = 0;
+    public int getDepth(BinaryTreeNode root){
 
         if(root == null){
-            highnum = 0;
-            return highnum;
+            return 0;
         }
 
-        lefthighnum = returnHighNum(root.getLeft());
-        righthighnum = returnHighNum(root.getRight());
+        return Math.max(getDepth(root.getLeft()), getDepth(root.getRight())) + 1;
 
-        return Math.max(lefthighnum, righthighnum) + 1;
+    }
 
+    public int getMaxWidth(BinaryTreeNode root){
+        Queue<BinaryTreeNode> queue = new ArrayDeque<BinaryTreeNode>();
+        BinaryTreeNode node;
+
+        if(root == null)
+            return 0;
+
+        queue.offer(root);
+        int maxWidth = 0;
+        while(!queue.isEmpty()){
+            node = queue.poll();
+            if(node.getLeft() != null)
+                queue.offer(node.getLeft());
+            if(node.getRight() != null)
+                queue.offer(node.getRight());
+
+            if(maxWidth < queue.size())
+                maxWidth = queue.size();
+        }
+        return maxWidth;
     }
 
 
@@ -117,7 +134,7 @@ public class Erchashubianli {
 
         Erchashubianli e = new Erchashubianli();
 
-        e.postOrder(root);
+        System.out.print(e.getMaxWidth(root));
 
         //System.out.print(e.returnHighNum(root));
     }

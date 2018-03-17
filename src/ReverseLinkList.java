@@ -19,8 +19,6 @@ public class ReverseLinkList {
             head.next = before;
             before = head;
             head = after;
-
-
         }
         return before;
 

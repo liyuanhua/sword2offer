@@ -2,24 +2,23 @@
  * Created by liyuanhua on 18/3/11.
  */
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Congweidaotoudayinliebiao {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        ArrayList<Integer> list1 = new ArrayList<Integer>();
-        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();
 
-        ListNode n = listNode;
-        while(n != null) {
-            list1.add(n.val);
-            n = n.next;
-
-        }
-
-        for(int i=list1.size()-1;i>=0;i--){
-            list2.add(list1.get(i));
+        while(listNode != null) {
+            stack.push(listNode.val);
+            listNode = listNode.next;
 
         }
-        return list2;
+
+        while(!stack.isEmpty()){
+            list.add(stack.pop());
+        }
+        return list;
     }
 
 

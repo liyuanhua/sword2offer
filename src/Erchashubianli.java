@@ -99,6 +99,8 @@ public class Erchashubianli {
     }
 
     public int getMaxWidth(BinaryTreeNode root){
+
+        int maxWidth = 0;
         Queue<BinaryTreeNode> queue = new ArrayDeque<BinaryTreeNode>();
         BinaryTreeNode node;
 
@@ -106,9 +108,9 @@ public class Erchashubianli {
             return 0;
 
         queue.offer(root);
-        int maxWidth = 0;
         while(!queue.isEmpty()){
             node = queue.poll();
+
             if(node.getLeft() != null)
                 queue.offer(node.getLeft());
             if(node.getRight() != null)
@@ -117,6 +119,7 @@ public class Erchashubianli {
             if(maxWidth < queue.size())
                 maxWidth = queue.size();
         }
+
         return maxWidth;
     }
 
@@ -134,8 +137,10 @@ public class Erchashubianli {
 
         Erchashubianli e = new Erchashubianli();
 
-        System.out.print(e.getMaxWidth(root));
+        //System.out.print(e.getMaxWidth(root));
 
         //System.out.print(e.returnHighNum(root));
+        //e.preOrder(root);
+        System.out.print(e.getMaxWidth(root));
     }
 }

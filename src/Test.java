@@ -7,27 +7,29 @@ import java.util.HashMap;
 import java.lang.Integer;
 
 public class Test {
+    public static void binarySearch(int[] array, int k){
+
+        int l = 0;
+        int r = array.length - 1;
+        int mid ;
+
+        while(l <= r) {
+            mid = ( l + r ) / 2;
+            if (array[mid] == k) {
+                System.out.print(mid);
+                return;
+            } else if (array[mid] < k){
+                l = mid + 1;
+            }
+            else
+                r = mid - 1;
+        }
+    }
 
     public static void main(String[] args){
-        int[] a = {1,2,3,4,5};
-        int l = 0;
-        int r = a.length-1;
-        int key = 12;
+        int[] a = {1,3,4,5,8,9};
 
-        while(true) {
-            int n = (l + r) / 2;
-
-            if (a[n] == key) {
-                System.out.print(n);
-                break;
-            }
-
-            if(a[n] < key)
-                l = n+1;
-            else if(key < a[n])
-                r = n-1;
-        }
-
+        binarySearch(a, 8);
 
 
     }

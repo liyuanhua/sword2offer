@@ -15,7 +15,6 @@ public class TreeSubStruct {
             }
             if(flag == false)
                 flag = HasSubtree(root1.right,root2);
-
         }
 
         return flag;

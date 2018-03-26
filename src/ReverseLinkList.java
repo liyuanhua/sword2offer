@@ -11,17 +11,17 @@ public class ReverseLinkList {
         if(head==null)
             return null;
 
-        ListNode before = null;
+        ListNode h = head;
         ListNode after = null;
+        ListNode before = null;
 
-        while (head != null){
-            after = head.next;
-            head.next = before;
-            before = head;
-            head = after;
+        while(h != null){
+            after = h.next;
+            h.next = before;
+            before = h;
+            h = after;
         }
         return before;
-
     }
 
     public static void main(String[] args){

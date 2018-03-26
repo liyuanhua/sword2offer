@@ -4,7 +4,7 @@ import java.util.Arrays;
  * Created by liyuanhua on 18/3/12.
  */
 
-public class Chongjianershachu {
+public class Chongjianerchachu {
 
     public TreeNode reConstructBinaryTree(int[] pre,int[] in) {
 

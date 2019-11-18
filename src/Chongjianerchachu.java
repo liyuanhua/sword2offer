@@ -15,8 +15,14 @@ public class Chongjianerchachu {
             if(in[i] == pre[0])
                 index = i;
 
-            root.left = reConstructBinaryTree(Arrays.copyOfRange(pre, 1, index+1 ), Arrays.copyOfRange(in, 0, index));
-            root.right = reConstructBinaryTree(Arrays.copyOfRange(pre, index+1, pre.length), Arrays.copyOfRange(in, index+1, in.length));
+            root.left = reConstructBinaryTree(
+                    Arrays.copyOfRange(pre, 1, index+1 ),
+                    Arrays.copyOfRange(in, 0, index)
+            );
+            root.right = reConstructBinaryTree(
+                    Arrays.copyOfRange(pre, index+1, pre.length),
+                    Arrays.copyOfRange(in, index+1, in.length)
+            );
 
             break;
         }

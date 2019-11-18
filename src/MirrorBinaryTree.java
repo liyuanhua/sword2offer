@@ -13,20 +13,18 @@ public class MirrorBinaryTree {
     }
 
     public void Mirror(TreeNode root) {
-
         if(root == null)
             return;
 
-        TreeNode head = root;
+        TreeNode node = null;
 
-        TreeNode tmp = null;
 
-        tmp = head.left;
-        head.left = head.right;
-        head.right = tmp;
+        node = root.left;
+        root.left = root.right;
+        root.right = node;
 
-        Mirror(head.left);
-        Mirror(head.right);
+        Mirror(root.left);
+        Mirror(root.right);
 
 
     }

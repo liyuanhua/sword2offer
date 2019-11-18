@@ -4,22 +4,27 @@
 public class FindNumOf2_Array {
 
     public boolean findExec(int[][] array, int target){
-        int rows = array.length;
-        int columns = array[0].length;
-        int row = 0;
-        int column = columns - 1;
 
-        boolean found = false;
-        while (column >= 0 && row < rows){
-            if (array[row][column] == target){
-                found = true;
-                break;
-            } else if (array[row][column] > target)
+        int columns = array[0].length;
+        int column = columns - 1;
+        int rows = array.length;
+        int row = 0;
+
+        boolean flag = false;
+        while(column >= 0 && row < rows){
+            if(target < array[row][column]){
                 column--;
-            else
+            }
+            else if(target > array[row][column]){
                 row++;
+            }
+            else{
+                flag = true;
+                break;
+            }
         }
-        return found;
+
+        return flag;
     }
 
 
@@ -32,7 +37,7 @@ public class FindNumOf2_Array {
         };
 
         FindNumOf2_Array obj = new FindNumOf2_Array();
-        System.out.print(obj.findExec(array, 2));
+        System.out.print(obj.findExec(array, 115));
 
     }
 }

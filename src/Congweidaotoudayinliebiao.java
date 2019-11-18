@@ -6,19 +6,19 @@ import java.util.Stack;
 
 public class Congweidaotoudayinliebiao {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        Stack<Integer> stack = new Stack<Integer>();
+        ArrayList<Integer> array = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
 
-        while(listNode != null) {
+        while(listNode != null){
             stack.push(listNode.val);
             listNode = listNode.next;
-
         }
 
         while(!stack.isEmpty()){
-            list.add(stack.pop());
+            array.add(stack.pop());
         }
-        return list;
+
+        return array;
     }
 
 

@@ -8,18 +8,18 @@ import java.util.List;
 public class ReverseLinkList {
 
     public ListNode ReverseList(ListNode head) {
-        if(head==null)
+        if(head == null)
             return null;
 
-        ListNode h = head;
         ListNode after = null;
         ListNode before = null;
 
-        while(h != null){
-            after = h.next;
-            h.next = before;
-            before = h;
-            h = after;
+
+        while(head != null){
+            after = head.next;
+            head.next = before;
+            before = head;
+            head = after;
         }
         return before;
     }
